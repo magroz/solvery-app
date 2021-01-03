@@ -1,6 +1,6 @@
-import React from 'react';
-import ClassNames from 'classnames';
-import ButtonHooksProps from './ButtonHooksProps';
+import React from "react"
+import ClassNames from "classnames"
+import { ButtonHooksProps } from "./ButtonHooksProps"
 
 export default function ButtonHooks({
     isDisabled = false,
@@ -8,13 +8,13 @@ export default function ButtonHooks({
     onClick,
     elementId,
     icon,
-    title = 'Btn',
+    title = "Btn",
     isPrimary,
     isSecondary,
     isAdvanced,
     isBig,
 }: ButtonHooksProps) {
-    const className = ClassNames('Button', {
+    const className = ClassNames("Button", {
         Button_primary: isPrimary,
         Button_secondary: isSecondary,
         Button_advanced: isAdvanced,

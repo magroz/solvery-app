@@ -1,4 +1,4 @@
-export default interface ButtonHooksProps {
+export interface ButtonHooksProps {
     elementId: string
     onClick: () => void
     title: string

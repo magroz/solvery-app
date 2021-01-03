@@ -1,53 +1,63 @@
-import React from 'react'
-interface SideBarItem {
-    title: string
-    route: string
-    children?: SideBarItem[]
-}
+import React from "react"
+import { SideBarItem } from "./SideBarProps"
+import { MenuElement } from "./MenuElement"
+import { BrowserRouter } from "react-router-dom"
+
+import "./style.css"
 
 const SIDE_BAR_ITEMS: SideBarItem[] = [
     {
-        title: 'Home page',
-        route: '/',
+        title: "Home page",
+        route: "/",
     },
     {
-        title: 'Profile',
-        route: '/profile',
+        title: "Profile",
+        route: "/profile",
         children: [
             {
-                title: 'Payments',
-                route: '/payments',
+                title: "Payments",
+                route: "/payments",
+                children: [
+                    {
+                        title: "Visa",
+                        route: "/visa",
+                    },
+                    {
+                        title: "Mastercard",
+                        route: "/mastercard",
+                    },
+                ],
             },
             {
-                title: 'Change password',
-                route: '/changePassword',
+                title: "Change password",
+                route: "/changePassword",
             },
         ],
     },
 ]
 
-function SideBar() {
+export function renderMenuTree(items: SideBarItem[]) {
     return (
-        <aside>
-            {SIDE_BAR_ITEMS.map((item) => {
+        <ul className={"treeline"}>
+            {items.map(({ title, route, children }) => {
                 return (
-                    <div>
-                        <div>{item.title}</div>
-                        {item?.children && (
-                            <div>
-                                {item.children.map((subItem) => {
-                                    return (
-                                        <div>
-                                            <div>{subItem.title}</div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
-                    </div>
+                    <MenuElement
+                        key={title}
+                        title={title}
+                        route={route}
+                        children={children}
+                    />
                 )
             })}
-        </aside>
+        </ul>
+    )
+}
+
+function SideBar() {
+    return (
+        <BrowserRouter>
+            <aside>{renderMenuTree(SIDE_BAR_ITEMS)}</aside>
+        </BrowserRouter>
     )
 }
 

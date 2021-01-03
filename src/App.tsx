@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import './App.css'
-import Button from './Components/Button/Button'
-import ButtonHooks from './Components/ButtonHooks/ButtonHooks'
-import { SideBar } from './Components/SideBar'
+import React, { useState } from "react"
+import "./App.css"
+import Button from "./Components/Button/Button"
+import ButtonHooks from "./Components/ButtonHooks/ButtonHooks"
+import { SideBar } from "./Components/SideBar"
 
 function App() {
     const [isBtnDisabled, setIsBtnDisabled] = useState(true)
     function requestApi() {
-        return fetch('https://jsonplaceholder.typicode.com/todos/1')
+        return fetch("https://jsonplaceholder.typicode.com/todos/1")
             .then((response) => response.json())
             .then((json) => console.log(json))
     }
@@ -17,15 +17,15 @@ function App() {
                 reverse disabled btn
             </button>
             <Button
-                elementId={'testId'}
+                elementId={"testId"}
                 onChangePromise={requestApi}
                 isDisabled={isBtnDisabled}
             />
             <ButtonHooks
-                elementId={'testId'}
+                elementId={"testId"}
                 isDisabled={isBtnDisabled}
-                title={'btn'}
-                onClick={() => console.log('1')}
+                title={"btn"}
+                onClick={() => console.log("1")}
             />
             <SideBar />
         </div>
