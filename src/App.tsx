@@ -5,12 +5,8 @@ import ButtonHooks from "./Components/ButtonHooks/ButtonHooks"
 import { SideBar } from "./Components/SideBar"
 
 function App() {
-    const [isBtnDisabled, setIsBtnDisabled] = useState(true)
-    function requestApi() {
-        return fetch("https://jsonplaceholder.typicode.com/todos/1")
-            .then((response) => response.json())
-            .then((json) => console.log(json))
-    }
+    const [isBtnDisabled, setIsBtnDisabled] = useState<boolean>(true)
+
     return (
         <div className="App">
             <button onClick={() => setIsBtnDisabled(!isBtnDisabled)}>
@@ -18,14 +14,14 @@ function App() {
             </button>
             <Button
                 elementId={"testId"}
-                onChangePromise={requestApi}
+                onChangePromise={() => console.log("1")}
                 isDisabled={isBtnDisabled}
             />
             <ButtonHooks
                 elementId={"testId"}
                 isDisabled={isBtnDisabled}
                 title={"btn"}
-                onClick={() => console.log("1")}
+                onClick={() => console.log("btn 2")}
             />
             <SideBar />
         </div>
