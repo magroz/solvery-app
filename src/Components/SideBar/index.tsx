@@ -1,7 +1,6 @@
 import React from "react"
 import { SideBarItem } from "./SideBarProps"
 import { MenuElement } from "./MenuElement"
-import { BrowserRouter } from "react-router-dom"
 
 import "./style.css"
 
@@ -9,6 +8,26 @@ const SIDE_BAR_ITEMS: SideBarItem[] = [
     {
         title: "Home page",
         route: "/",
+    },
+    {
+        title: "Lessons",
+        route: "#",
+        children: [
+            {
+                title: "First lesson",
+                route: "/first-lesson",
+            },
+        ],
+    },
+    {
+        title: "Task",
+        route: "#",
+        children: [
+            {
+                title: "Timer",
+                route: "/timer",
+            },
+        ],
     },
     {
         title: "Profile",
@@ -54,11 +73,7 @@ export function renderMenuTree(items: SideBarItem[]) {
 }
 
 function SideBar() {
-    return (
-        <BrowserRouter>
-            <aside>{renderMenuTree(SIDE_BAR_ITEMS)}</aside>
-        </BrowserRouter>
-    )
+    return <aside>{renderMenuTree(SIDE_BAR_ITEMS)}</aside>
 }
 
 export { SideBar }

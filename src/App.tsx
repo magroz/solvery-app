@@ -1,29 +1,23 @@
-import React, { useState } from "react"
-import "./App.css"
-import Button from "./Components/Button/Button"
-import ButtonHooks from "./Components/ButtonHooks/ButtonHooks"
+import React from "react"
+import "./Components/FirstLesson/FirstLesson.css"
 import { SideBar } from "./Components/SideBar"
+import AppRouter from "./Components/AppRouter"
 
 function App() {
-    const [isBtnDisabled, setIsBtnDisabled] = useState<boolean>(true)
-
     return (
-        <div className="App">
-            <button onClick={() => setIsBtnDisabled(!isBtnDisabled)}>
-                reverse disabled btn
-            </button>
-            <Button
-                elementId={"testId"}
-                onChangePromise={() => console.log("1")}
-                isDisabled={isBtnDisabled}
-            />
-            <ButtonHooks
-                elementId={"testId"}
-                isDisabled={isBtnDisabled}
-                title={"btn"}
-                onClick={() => console.log("btn 2")}
-            />
-            <SideBar />
+        <div style={{ display: "flex" }}>
+            <div
+                style={{
+                    padding: "10px",
+                    width: "40%",
+                    background: "#f0f0f0",
+                }}
+            >
+                <SideBar />
+            </div>
+            <div style={{ marginLeft: "10px" }}>
+                <AppRouter />
+            </div>
         </div>
     )
 }
