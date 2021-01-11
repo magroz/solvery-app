@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Switch } from "react-router-dom"
 import { FirstLesson } from "../FirstLesson/FirstLesson"
 import { Timer } from "../Timer/Timer"
+import NoMatch from "../NoMatch"
 
 export interface AppRouteProps {
     exact?: boolean
@@ -12,20 +13,20 @@ export interface AppRouteProps {
 const routes: AppRouteProps[] = [
     {
         path: "/first-lesson",
-        component: () => <FirstLesson />,
+        component: FirstLesson,
     },
     {
         path: "/timer",
-        component: () => <Timer />,
+        component: Timer,
     },
     {
         exact: true,
         path: "/",
-        component: () => <h1>main</h1>,
+        component: <h1>main</h1>,
     },
     {
         path: "*",
-        component: () => <h1>404</h1>,
+        component: NoMatch,
     },
 ]
 

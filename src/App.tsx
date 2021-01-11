@@ -9,7 +9,7 @@ function App() {
             <div
                 style={{
                     padding: "10px",
-                    width: "40%",
+                    width: "20%",
                     background: "#f0f0f0",
                 }}
             >
